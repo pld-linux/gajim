@@ -1,8 +1,8 @@
 #
 #%define		snap 20050603
 #
-Summary:	A jabber client written in PyGTK
-Summary(pl):	Klient Jabbera napisany w PyGTK.
+Summary:	A Jabber client written in PyGTK
+Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.7
 #Release:	0.%{snap}.1
@@ -23,11 +23,16 @@ Requires:	python-pygtk-gtk >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Gajim is a jabber client written in PyGTK. The goal of Gajim's developers is to
-provide a full featured and easy to use xmpp client for the GTK+ users. Gajim
-does not require GNOME to run, eventhough it exists with it nicely.
+Gajim is a Jabber client written in PyGTK. The goal of Gajim's
+developers is to provide a full featured and easy to use XMPP client
+for the GTK+ users. Gajim does not require GNOME to run, eventhough it
+exists with it nicely.
 
-#description -l pl
+%description -l pl
+Gajim to klient Jabbera napisany w PyGTK. Celem twórców Gajima jest
+dostarczenie w pe³ni funkcjonalnego i ³atwego w u¿yciu klienta XMPP
+dla u¿ytkowników GTK+. Gajim nie wymaga do dzia³ania GNOME, choæ
+dzia³a z nim ³adnie.
 
 %prep
 %setup -q
@@ -55,6 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.so
-%{_desktopdir}/*.desktop
-%{_mandir}/man1/*.gz
 %{_datadir}/%{name}
+%{_desktopdir}/*.desktop
+%{_mandir}/man1/*
