@@ -1,0 +1,69 @@
+diff -ur gajim-0.7-old/src/common/connection.py gajim-0.7/src/common/connection.py
+--- gajim-0.7-old/src/common/connection.py	2005-05-23 20:22:06.000000000 +0200
++++ gajim-0.7/src/common/connection.py	2005-06-03 22:29:02.033694568 +0200
+@@ -157,7 +157,10 @@
+ 	def _vCardCB(self, con, vc):
+ 		"""Called when we recieve a vCard
+ 		Parse the vCard and send it to plugins"""
+-		vcard = {'jid': vc.getFrom().getStripped()}
++                try:
++                  vcard = {'jid': vc.getFrom().getStripped()}
++                except:
++                  vcard = {}
+ 		if vc.getTag('vCard').getNamespace() == common.xmpp.NS_VCARD:
+ 			card = vc.getChildren()[0]
+ 			for info in card.getChildren():
+diff -ur gajim-0.7-old/src/common/xmpp/auth.py gajim-0.7/src/common/xmpp/auth.py
+--- gajim-0.7-old/src/common/xmpp/auth.py	2005-05-23 20:22:05.000000000 +0200
++++ gajim-0.7/src/common/xmpp/auth.py	2005-06-03 22:29:02.037693960 +0200
+@@ -109,7 +109,8 @@
+             two Dispatcher.Process() calls. """
+         self.username=username
+         self.password=password
+-        if self._owner.Dispatcher.Stream.features:
++        if self.startsasl: pass
++        elif self._owner.Dispatcher.Stream.features:
+             try: self.FeaturesHandler(self._owner.Dispatcher,self._owner.Dispatcher.Stream.features)
+             except NodeProcessed: pass
+         else: self._owner.RegisterHandler('features',self.FeaturesHandler,xmlns=NS_STREAMS)
+diff -ur gajim-0.7-old/src/common/xmpp/transports.py gajim-0.7/src/common/xmpp/transports.py
+--- gajim-0.7-old/src/common/xmpp/transports.py	2005-05-23 20:22:05.000000000 +0200
++++ gajim-0.7/src/common/xmpp/transports.py	2005-06-03 22:29:02.045692744 +0200
+@@ -31,6 +31,7 @@
+ from simplexml import ustr
+ from client import PlugIn
+ from protocol import *
++import dns.resolver
+ 
+ class error:
+     """An exception to be raised in case of low-level errors in methods of 'transports' module."""
+@@ -50,6 +51,29 @@
+         PlugIn.__init__(self)
+         self.DBG_LINE='socket'
+         self._exported_methods=[self.send,self.disconnect]
++        
++        # SRV resolver hacks
++        host, port = server
++        possible_queries = [
++            "_xmpp-client._tcp." + host,
++            "_jabber._tcp." + host,
++          ]
++        for query in possible_queries:
++          try:
++            answers = [x for x in dns.resolver.query (query, "SRV")]
++            if answers:
++              host = str (answers[0].target)
++              port = int (answers[0].port)
++              if port == 5223 and query[:5] == "_xmpp":
++                # temporary hack
++                port = 5222
++              break
++          except:
++            pass
++
++        server = (host, port)
++        # end of SRV resolver hacks
++        
+         self._server = server
+ 
+     def plugin(self, owner):
