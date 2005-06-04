@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{COPYING,setup_win32.pyo}
+rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
