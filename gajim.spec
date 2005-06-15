@@ -6,7 +6,7 @@ Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.7.1
 #Release:	1.%{snap}.1
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/gajim-0.7.1.tar.bz2
@@ -17,6 +17,7 @@ URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
+Requires:	python-dns
 Requires:	python-gnome-extras-egg >= 2.10.0
 Requires:	python-gnome-extras-gtkspell >= 2.10.0
 Requires:	python-pygtk-glade >= 2.6.0
