@@ -13,6 +13,7 @@ Source0:	http://gajim.org/downloads/gajim-0.7.1.tar.bz2
 # Source0-md5:	f795d550749d78839d1b6a554bbff545
 #Source0:	gajim-snap-%{snap}.tar.bz2
 Patch0:		%{name}-SRV.patch
+Patch1:		%{name}-makefile.patch
 URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
 %pyrequires_eq	python-modules
@@ -40,10 +41,12 @@ dzia³a z nim ³adnie.
 %setup -q
 # -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
-	PREFIX=%{_prefix}
+	PREFIX=%{_prefix} \
+	LIBDIR=%{_libdir}
 
 %install
 rm -rf $RPM_BUILD_ROOT
