@@ -1,13 +1,13 @@
 diff -urN gajim-0.7.1/Makefile fix/gajim-0.7.1/Makefile
 --- gajim-0.7.1/Makefile	2005-06-05 12:56:42.000000000 +0200
-+++ fix/gajim-0.7.1/Makefile	2005-06-15 14:41:58.000000000 +0200
++++ fix/gajim-0.7.1/Makefile	2005-06-15 15:55:22.000000000 +0200
 @@ -1,8 +1,9 @@
  VERSION		?= 0.7.1
  
  MODULES		= src src/common po
 -PREFIX		= /usr
  DESTDIR		= /
-+PREFIX		= $(DESTIDR)/usr
++PREFIX		= /usr
 +LIBDIR		= /lib
  
  FIND		= find . \( -name '*.glade' -o -name '*.py' -o -name '*.xpm' -o -name '*.gif' -o -name '*.png' -o -name '*.mo' -o -name '*.wav' \)
