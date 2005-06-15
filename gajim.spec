@@ -41,13 +41,14 @@ dzia³a z nim ³adnie.
 %build
 %{__make} \
 	PREFIX=%{_prefix} \
-	LIBDIR=%{_libdir}
+	LIBDIR=/%{_lib}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	PREFIX=%{_prefix} \
+	LIBDIR=/%{_lib} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
