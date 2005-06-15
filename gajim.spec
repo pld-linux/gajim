@@ -11,6 +11,7 @@ Patch0:		%{name}-SRV.patch
 Patch1:		%{name}-makefile.patch
 URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
+BuildRequires:	gettext-devel
 BuildRequires:	python-pygtk-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
