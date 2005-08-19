@@ -1,23 +1,24 @@
 # TODO
 # - use /usr/share/locale
-# - fix gajim-remote and add R: python-dbus
 #
 Summary:	A Jabber client written in PyGTK
 Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.8
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/%{name}-%{version}.tar.bz2
 # Source0-md5:	1f9b4864c56d744d1e6f1c0b42afc4e9
 Patch0:		%{name}-makefile.patch
+Patch1:		%{name}-remote.patch
 URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
 BuildRequires:	gettext-devel
 BuildRequires:	python-pygtk-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
+Requires:	python-dbus
 Requires:	python-dns
 Requires:	python-gnome-extras-egg >= 2.10.0
 Requires:	python-gnome-extras-gtkspell >= 2.10.0
@@ -40,6 +41,7 @@ dzia³a z nim ³adnie.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
