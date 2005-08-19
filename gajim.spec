@@ -1,3 +1,6 @@
+# TODO
+# - use /usr/share/locale
+#
 Summary:	A Jabber client written in PyGTK
 Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
