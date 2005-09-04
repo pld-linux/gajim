@@ -1,9 +1,0 @@
-diff -urN gajim-0.8.1.orig/scripts/gajim gajim-0.8.1/scripts/gajim
---- gajim-0.8.1.orig/scripts/gajim	2005-09-04 11:27:11.836558992 +0200
-+++ gajim-0.8.1/scripts/gajim	2005-09-04 11:27:36.900748656 +0200
-@@ -23,4 +23,4 @@
- 
- cd PREFIX/share/gajim/src
- export PYTHONPATH="$PYTHONPATH:PREFIXLIB/gajim"
--./gajim.py $@
-+python ./gajim.py $@
