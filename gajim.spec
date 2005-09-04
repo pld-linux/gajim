@@ -11,9 +11,8 @@ Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/%{name}-%{version}.tar.bz2
 # Source0-md5:	d4cbbd64078b9c93fdd1492c27dbcdab
 Patch0:		%{name}-makefile.patch
-Patch1:		%{name}-run.patch
-Patch2:		%{name}-remote.patch
-Patch3:		%{name}-dbus_version.patch
+Patch1:		%{name}-remote.patch
+Patch2:		%{name}-dbus_version.patch
 URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
 BuildRequires:	gettext-devel
@@ -45,7 +44,6 @@ dzia³a z nim ³adnie.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %{__make} \
@@ -71,7 +69,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.so
-%{_datadir}/%{name}
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/COPYING
+%{_datadir}/%{name}/data
+%{_datadir}/%{name}/po
+%dir %{_datadir}/%{name}/src
+%{_datadir}/%{name}/src/common
+%attr(755,root,root) %{_datadir}/%{name}/src/gajim.py
+%{_datadir}/%{name}/src/[!g]*.py
+%{_datadir}/%{name}/src/g[!a]*
+%{_datadir}/%{name}/src/gajim[!.]*
 %{_desktopdir}/*.desktop
 %{_mandir}/man1/*
 %{_pixmapsdir}/*.png
