@@ -1,18 +1,12 @@
-# TODO
-# - use /usr/share/locale
-#
 Summary:	A Jabber client written in PyGTK
 Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.8.1
+Version:	0.8.2
 Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	d4cbbd64078b9c93fdd1492c27dbcdab
-Patch0:		%{name}-makefile.patch
-Patch1:		%{name}-remote.patch
-Patch2:		%{name}-dbus_version.patch
+# Source0-md5:	14b00f8ed7d84d90793782db7df40ec1
 URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
 BuildRequires:	gettext-devel
@@ -41,9 +35,6 @@ dzia³a z nim ³adnie.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__make} \
@@ -60,10 +51,12 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS README Changelog
 %attr(755,root,root) %{_bindir}/*
@@ -72,7 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/COPYING
 %{_datadir}/%{name}/data
-%{_datadir}/%{name}/po
 %dir %{_datadir}/%{name}/src
 %{_datadir}/%{name}/src/common
 %attr(755,root,root) %{_datadir}/%{name}/src/gajim.py
