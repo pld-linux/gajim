@@ -4,7 +4,7 @@ Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.9
 Release:	0.%(echo %{_snap}|tr -d -).1
-License:	GPL
+License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/snap/%{name}-%{_snap}.tar.bz2
 # Source0-md5:	81b1a1ea79b28a201e9c7212b8df289e
