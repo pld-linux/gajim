@@ -1,4 +1,4 @@
-%define		_snap	2005-09-07
+%define		_snap	2005-09-12
 Summary:	A Jabber client written in PyGTK
 Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
@@ -7,19 +7,21 @@ Release:	0.%(echo %{_snap}|tr -d -).1
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/snap/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	81b1a1ea79b28a201e9c7212b8df289e
+# Source0-md5:	e80414637d5f3aced6fe73c5c8233d5a
 URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
 BuildRequires:	gettext-devel
-BuildRequires:	python-pygtk-devel
+BuildRequires:	intltool
+BuildRequires:	python-pygtk-devel >= 2.8.0
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
 Requires:	python-dbus
 Requires:	python-dns
-Requires:	python-gnome-extras-egg >= 2.10.0
-Requires:	python-gnome-extras-gtkspell >= 2.10.0
-Requires:	python-pygtk-glade >= 2.6.0
-Requires:	python-pygtk-gtk >= 2.6.0
+Requires:	python-gnome-gconf >= 2.12.0
+Requires:	python-gnome-extras-egg >= 2.12.0
+Requires:	python-gnome-extras-gtkspell >= 2.12.0
+Requires:	python-pygtk-glade >= 2.8.0
+Requires:	python-pygtk-gtk >= 2.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,16 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.so
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/COPYING
-%{_datadir}/%{name}/data
-%dir %{_datadir}/%{name}/src
-%{_datadir}/%{name}/src/common
-%attr(755,root,root) %{_datadir}/%{name}/src/gajim.py
-%attr(755,root,root) %{_datadir}/%{name}/src/gajim-remote.py
-%{_datadir}/%{name}/src/[!g]*.py
-%{_datadir}/%{name}/src/g[!a]*
-%{_datadir}/%{name}/src/gajim_*
+%{_datadir}/%{name}
 %{_desktopdir}/*.desktop
 %{_mandir}/man1/*
 %{_pixmapsdir}/*.png
