@@ -7,7 +7,7 @@ Release:	0.%(echo %{_snap}|tr -d -).1
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/snap/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	a3255f3f9b61f7ef199d6b2474c76f9f
+# Source0-md5:	8df9930d7dbf6079ab47339e77b28d88
 URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
 BuildRequires:	gettext-devel
