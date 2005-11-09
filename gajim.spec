@@ -1,4 +1,4 @@
-%define		_snap	2005-10-31
+%define		_snap	2005-11-09
 Summary:	A Jabber client written in PyGTK
 Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
@@ -7,7 +7,7 @@ Release:	0.%(echo %{_snap}|tr -d -).1
 License:	GPL v2+
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/snap/%{name}-%{_snap}.tar.bz2
-# Source0-md5:	a65eeb6778ea083acb327eb30dced4ba
+# Source0-md5:	9557c5487b32d6cf1f91a9f67a964369
 URL:		http://www.gajim.org/
 BuildRequires:	gtkspell-devel
 BuildRequires:	gettext-devel
