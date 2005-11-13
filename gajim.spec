@@ -20,6 +20,7 @@ Requires:	python-dns
 Requires:	python-gnome-gconf >= 2.12.0
 Requires:	python-gnome-extras-egg >= 2.12.0
 Requires:	python-gnome-extras-gtkspell >= 2.12.0
+Requires:	python-gnome-vfs >= 2.12.0
 Requires:	python-pygtk-glade >= 2.8.0
 Requires:	python-pygtk-gtk >= 2.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
