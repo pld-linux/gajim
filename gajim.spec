@@ -18,7 +18,6 @@ BuildRequires:	rpmbuild(macros) >= 1.177
 %pyrequires_eq	python
 Requires:	python-dns
 Requires:	python-pygtk-glade >= 2.8.0
-Requires:	python-sqlite >= 2.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,6 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 For full functionality, you need to install:
 - python-dbus (for gajim-remote and notification-daemon support)
 - python-gnome-gconf (for xmpp url-handler in GNOME)
+- python-sqlite (for logs)
 EOF
 
 %files -f %{name}.lang
