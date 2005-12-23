@@ -35,7 +35,9 @@ dzia³a z nim ³adnie.
 %setup -q
 
 %build
+%{__make} clean
 %{__make} \
+	CC="%{__cc}" \
 	PREFIX=%{_prefix} \
 	LIBDIR=/%{_lib}
 
