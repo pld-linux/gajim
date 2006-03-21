@@ -1,0 +1,21 @@
+diff -urpN gajim-0.10.orig/src/gajim.py gajim-0.10/src/gajim.py
+--- gajim-0.10.orig/src/gajim.py	2006-03-21 16:26:15.000000000 +0100
++++ gajim-0.10/src/gajim.py	2006-03-21 16:26:56.000000000 +0100
+@@ -654,7 +654,7 @@ class Interface:
+ 		dialogs.InformationDialog(_('Authorization accepted'),
+ 				_('The contact "%s" has authorized you to see his or her status.')
+ 				% jid)
+-		gajim.connections[account].ack_subscribed(jid)
++		# gajim.connections[account].ack_subscribed(jid)
+ 		if self.remote_ctrl:
+ 			self.remote_ctrl.raise_signal('Subscribed', (account, array))
+ 
+@@ -662,7 +662,7 @@ class Interface:
+ 		dialogs.InformationDialog(_('Contact "%s" removed subscription from you') % jid,
+ 				_('You will always see him or her as offline.'))
+ 		# FIXME: Per RFC 3921, we can "deny" ack as well, but the GUI does not show deny
+-		gajim.connections[account].ack_unsubscribed(jid)
++		# gajim.connections[account].ack_unsubscribed(jid)
+ 		if self.remote_ctrl:
+ 			self.remote_ctrl.raise_signal('Unsubscribed', (account, jid))
+ 	
