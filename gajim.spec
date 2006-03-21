@@ -8,6 +8,7 @@ License:	GPL v2
 Group:		Applications/Communications
 Source0:	%{name}-%{_snap}.tar.bz2
 # Source0-md5:	83b0dcbb92a33269055ad7c701a71a1a
+Patch0:		${name}-ack_subscribed.patch
 URL:		http://www.gajim.org/
 BuildRequires:	gettext-devel
 BuildRequires:	gtkspell-devel
@@ -35,6 +36,7 @@ dzia³a z nim ³adnie.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} clean
