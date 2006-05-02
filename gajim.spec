@@ -13,6 +13,7 @@ BuildRequires:	gtkspell-devel
 BuildRequires:	intltool
 BuildRequires:	python-pygtk-devel >= 2.8.0
 BuildRequires:	rpmbuild(macros) >= 1.177
+BuildRequires:	xorg-lib-libXScrnSaver-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
 Requires:	python-dns
