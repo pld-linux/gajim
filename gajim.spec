@@ -63,7 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 For full functionality, you need to install:
 - python-dbus (for gajim-remote and notification-daemon support)
 - python-gnome-gconf (for xmpp url-handler in GNOME)
-- python-sqlite (for logs)
 EOF
 
 %files -f %{name}.lang
