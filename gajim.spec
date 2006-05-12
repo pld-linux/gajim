@@ -18,7 +18,7 @@ BuildRequires:	xorg-lib-libXScrnSaver-devel
 %pyrequires_eq	python
 Requires:	python-dns
 Requires:	python-pygtk-glade >= 2.8.0
-Requires:	python-pysqlite
+Requires:	python-sqlite
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
