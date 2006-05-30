@@ -36,7 +36,7 @@ dla u¿ytkowników GTK+. Gajim nie wymaga do dzia³ania GNOME, choæ
 dzia³a z nim ³adnie.
 
 %prep
-%setup -q
+%setup -q -n %{name}-0.10
 
 %build
 %{__make} clean
