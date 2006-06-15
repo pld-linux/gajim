@@ -1,0 +1,10 @@
+Index: trunk/po/Makefile
+===================================================================
+--- trunk/po/Makefile (revision 6470)
++++ trunk/po/Makefile (revision 6480)
+@@ -60,5 +60,5 @@
+ 			install -m 755 -d $${dir};\
+ 		fi;\
+-		echo install -m 644 $${l}.mo $${dir}/${NAME}.mo;\
++		install -m 644 $${l}.mo $${dir}/${NAME}.mo;\
+ 	done
