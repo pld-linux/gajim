@@ -1,13 +1,12 @@
 Summary:	A Jabber client written in PyGTK
 Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.9
-Release:	2
+Version:	0.10.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	351c59ca1a162d134f546385b35bf804
-Patch0:		%{name}-typos.patch
+# Source0-md5:	392d9d1e06f6db49a892b9aea4a178c7
 URL:		http://www.gajim.org/
 BuildRequires:	gettext-devel
 BuildRequires:	gtkspell-devel
@@ -18,6 +17,7 @@ BuildRequires:	rpmbuild(macros) >= 1.177
 %pyrequires_eq	python
 Requires:	python-dns
 Requires:	python-pygtk-glade >= 2.8.0
+Requires:	python-sqlite
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,7 +34,6 @@ dzia³a z nim ³adnie.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__make} clean
@@ -52,6 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name}
 
@@ -63,7 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 For full functionality, you need to install:
 - python-dbus (for gajim-remote and notification-daemon support)
 - python-gnome-gconf (for xmpp url-handler in GNOME)
-- python-sqlite (for logs)
 EOF
 
 %files -f %{name}.lang
