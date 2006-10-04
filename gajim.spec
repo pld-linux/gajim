@@ -19,6 +19,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
+Requires:	python-docutils >= 0.4-2
 Requires:	python-dns
 Requires:	python-pygtk-glade >= 2.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
