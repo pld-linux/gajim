@@ -10,9 +10,12 @@ Group:		Applications/Communications
 Source0:	http://www.gajim.org/downloads/snap/%{name}-%{_snap_with_dashes}.tar.gz
 # Source0-md5:	d16bac44a496ad1b70a92efba3903fa8
 URL:		http://www.gajim.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	python-pygtk-devel >= 2.8.0
 BuildRequires:	rpmbuild(macros) >= 1.177
 BuildRequires:	rpm-pythonprov
