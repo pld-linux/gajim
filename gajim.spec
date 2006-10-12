@@ -71,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %banner %{name} -e << EOF
 For full functionality, you need to install:
+- avahi-discover (for zeroconf chat over local networks)
 - python-dbus (for gajim-remote and notification-daemon support)
 - python-gnome-gconf (for xmpp url-handler in GNOME)
 - python-sqlite (for logs)
