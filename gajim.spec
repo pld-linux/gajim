@@ -1,21 +1,26 @@
 Summary:	A Jabber client written in PyGTK
 Summary(pl):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.10.1
+Version:	0.11
 Release:	1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://gajim.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	392d9d1e06f6db49a892b9aea4a178c7
+Source0:	http://www.gajim.org/downloads/%{name}-%{version}.tar.bz2
+# Source0-md5:	7ac7ac6fdfc515cb927adf21793856fa
 URL:		http://www.gajim.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	python-pygtk-devel >= 2.8.0
 BuildRequires:	rpmbuild(macros) >= 1.177
+BuildRequires:	rpm-pythonprov
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
+Requires:	python-docutils >= 0.4-2
 Requires:	python-dns
 Requires:	python-pygtk-glade >= 2.8.0
 Requires:	python-sqlite
@@ -37,7 +42,13 @@ dzia³a z nim ³adnie.
 %setup -q
 
 %build
-%{__make} clean
+%{__intltoolize}
+%{__aclocal} -I m4
+%{__libtoolize}
+%{__autoheader}
+%{__autoconf}
+%{__automake}
+%{configure}
 %{__make} \
 	CC="%{__cc}" \
 	PREFIX=%{_prefix} \
@@ -62,13 +73,15 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %banner %{name} -e << EOF
 For full functionality, you need to install:
+- avahi-discover (for zeroconf chat over local networks)
 - python-dbus (for gajim-remote and notification-daemon support)
+- python-gnome-desktop-keyring (for secure password storage)
 - python-gnome-gconf (for xmpp url-handler in GNOME)
 EOF
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS README Changelog
+%doc AUTHORS ChangeLog README THANKS
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.so
