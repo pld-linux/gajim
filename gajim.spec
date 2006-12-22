@@ -48,7 +48,7 @@ dzia³a z nim ³adnie.
 %{__autoheader}
 %{__autoconf}
 %{__automake}
-%{configure}
+%configure
 %{__make} \
 	CC="%{__cc}" \
 	PREFIX=%{_prefix} \
