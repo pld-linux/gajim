@@ -1,5 +1,5 @@
 Summary:	A Jabber client written in PyGTK
-Summary(pl):	Klient Jabbera napisany w PyGTK
+Summary(pl.UTF-8):   Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.11
 Release:	1
@@ -31,11 +31,11 @@ developers is to provide a full featured and easy to use XMPP client
 for the GTK+ users. Gajim does not require GNOME to run, eventhough it
 exists with it nicely.
 
-%description -l pl
-Gajim to klient Jabbera napisany w PyGTK. Celem twÛrcÛw Gajima jest
-dostarczenie w pe≥ni funkcjonalnego i ≥atwego w uøyciu klienta XMPP
-dla uøytkownikÛw GTK+. Gajim nie wymaga do dzia≥ania GNOME, choÊ
-dzia≥a z nim ≥adnie.
+%description -l pl.UTF-8
+Gajim to klient Jabbera napisany w PyGTK. Celem tw√≥rc√≥w Gajima jest
+dostarczenie w pe≈Çni funkcjonalnego i ≈Çatwego w u≈ºyciu klienta XMPP
+dla u≈ºytkownik√≥w GTK+. Gajim nie wymaga do dzia≈Çania GNOME, choƒá
+dzia≈Ça z nim ≈Çadnie.
 
 %prep
 %setup -q
