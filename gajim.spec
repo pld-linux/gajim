@@ -1,12 +1,14 @@
+%define		snap	20070706
+%define		snap_date	2007-07-06
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):   Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.11
-Release:	1
+Version:	0.11.1.2
+Release:	0.%{snap}.1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://www.gajim.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	7ac7ac6fdfc515cb927adf21793856fa
+Source0:	http://www.gajim.org/downloads/snap/%{name}-%{snap_date}.tar.gz
+# Source0-md5:	2e977c39ddd62a3a7228d40701bea48c
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -23,6 +25,11 @@ BuildRequires:	xorg-lib-libXScrnSaver-devel
 Requires:	python-docutils >= 0.4-2
 Requires:	python-dns
 Requires:	python-pygtk-glade >= 2.8.0
+Suggests:	python-avahi
+Suggests:	python-dbus
+Suggests:	python-gnome-desktop-keyring
+Suggests:	python-gnome-gconf
+Suggests:	python-sqlite
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -68,16 +75,6 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post
-%banner %{name} -e << EOF
-For full functionality, you need to install:
-- avahi-discover (for zeroconf chat over local networks)
-- python-dbus (for gajim-remote and notification-daemon support)
-- python-gnome-desktop-keyring (for secure password storage)
-- python-gnome-gconf (for xmpp url-handler in GNOME)
-- python-sqlite (for logs)
-EOF
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
