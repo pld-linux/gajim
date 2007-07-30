@@ -26,7 +26,7 @@ Requires:	python-docutils >= 0.4-2
 Requires:	python-dns
 Requires:	python-pygtk-glade >= 2.8.0
 Suggests:	python-avahi
-Suggests:	python-dbus
+Suggests:	python-dbus >= 0.82.1
 Suggests:	python-gnome-desktop-keyring
 Suggests:	python-gnome-gconf
 Suggests:	python-pyOpenSSL
