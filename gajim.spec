@@ -19,6 +19,7 @@ BuildRequires:	libtool
 BuildRequires:	python-pygtk-devel >= 2.8.0
 BuildRequires:	rpmbuild(macros) >= 1.177
 BuildRequires:	rpm-pythonprov
+BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
