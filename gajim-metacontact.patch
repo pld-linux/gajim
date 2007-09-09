@@ -1,0 +1,13 @@
+Index: /branches/gajim_0.11.1/src/common/connection_handlers.py
+===================================================================
+--- gajim-0.11.1/src/common/connection_handlers.py (revision 8724)
++++ gajim-0.11.1/src/common/connection_handlers.py (revision 8726)
+@@ -1032,4 +1032,8 @@
+ 					data = {'jid': jid}
+ 					order = meta.getAttr('order')
++					try:
++						order = int(order)
++					except:
++						order = 0
+ 					if order != None:
+ 						data['order'] = order
