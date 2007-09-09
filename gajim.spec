@@ -2,13 +2,14 @@ Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.11.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.gajim.org/downloads/%{name}-%{version}.tar.bz2
 # Source0-md5:	cc587e7617f53ae8d5e0b30d7324e89c
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-metacontact.patch
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,6 +27,12 @@ Requires:	python-docutils >= 0.4-2
 Requires:	python-dns
 Requires:	python-pygtk-glade >= 2.8.0
 Requires:	python-sqlite
+Suggests:	python-avahi
+Suggests:	python-dbus >= 0.82.1
+Suggests:	python-gnome-desktop-keyring
+Suggests:	python-gnome-gconf
+Suggests:	python-pyOpenSSL
+Suggests:	python-sqlite
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,6 +50,7 @@ działa z nim ładnie.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__intltoolize}
@@ -72,15 +80,6 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post
-%banner %{name} -e << EOF
-For full functionality, you need to install:
-- avahi-discover (for zeroconf chat over local networks)
-- python-dbus (for gajim-remote and notification-daemon support)
-- python-gnome-desktop-keyring (for secure password storage)
-- python-gnome-gconf (for xmpp url-handler in GNOME)
-EOF
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
