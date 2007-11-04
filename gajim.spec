@@ -2,7 +2,7 @@ Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.11.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
@@ -31,6 +31,8 @@ Suggests:	python-gnome-desktop-keyring
 Suggests:	python-gnome-gconf
 Suggests:	python-pyOpenSSL
 Suggests:	python-sqlite
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -71,7 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
-
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}
 
 %clean
