@@ -1,5 +1,5 @@
-%define		snap	20080722
-%define		snap_date	2008-07-22
+%define		snap	20080731
+%define		snap_date	2008-07-31
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
@@ -9,7 +9,7 @@ Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.gajim.org/downloads/snap/%{name}-%{snap_date}.tar.gz
-# Source0-md5:	36e5cc8945a28817af9d6b73e22bad15
+# Source0-md5:	16b971426c6ce43e121b98e7d4357c60
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -51,6 +51,18 @@ dostarczenie w pełni funkcjonalnego i łatwego w użyciu klienta XMPP
 dla użytkowników GTK+. Gajim nie wymaga do działania GNOME, choć
 działa z nim ładnie.
 
+%package devel
+Summary:	Header files for gajim
+Summary(pl.UTF-8):	Pliki nagłówkowe dla gajim-a
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+Header files for gajim.
+
+%description devel -l pl.UTF-8
+Pliki nagłówkowe dla gajim-a.
+
 %prep
 %setup -q -n %{name}-%{version}-svn
 
@@ -62,6 +74,7 @@ działa z nim ładnie.
 %{__autoconf}
 %{__automake}
 %configure
+
 %{__make} \
 	CC="%{__cc}" \
 	PREFIX=%{_prefix} \
@@ -95,3 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_mandir}/man1/*
 %{_pixmapsdir}/*.png
+
+%files devel
+%defattr(644,root,root,755)
+%{_libdir}/gajim/*.la
