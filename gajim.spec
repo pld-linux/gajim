@@ -51,18 +51,6 @@ dostarczenie w pełni funkcjonalnego i łatwego w użyciu klienta XMPP
 dla użytkowników GTK+. Gajim nie wymaga do działania GNOME, choć
 działa z nim ładnie.
 
-%package devel
-Summary:	Header files for gajim
-Summary(pl.UTF-8):	Pliki nagłówkowe dla gajim-a
-Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-
-%description devel
-Header files for gajim.
-
-%description devel -l pl.UTF-8
-Pliki nagłówkowe dla gajim-a.
-
 %prep
 %setup -q -n %{name}-%{version}-svn
 
@@ -91,6 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
+
 [ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
        mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}
@@ -108,7 +98,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_mandir}/man1/*
 %{_pixmapsdir}/*.png
-
-%files devel
-%defattr(644,root,root,755)
-%{_libdir}/gajim/*.la
