@@ -32,6 +32,7 @@ Requires:	python-pygtk-glade >= 2.8.0
 Requires:	python-sqlite
 Suggests:	gnome-keyring
 Suggests:	gpgme >= 1.0.0
+Suggests:	python-Crypto
 Suggests:	python-avahi
 Suggests:	python-dbus >= 0.82.1
 Suggests:	python-gnome-desktop-keyring
