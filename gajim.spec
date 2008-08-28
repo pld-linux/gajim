@@ -31,13 +31,17 @@ Requires:	python-docutils >= 0.4-2
 Requires:	python-pygtk-glade >= 2.8.0
 Requires:	python-sqlite
 Suggests:	gnome-keyring
+Suggests:	gnupg2
 Suggests:	gpgme >= 1.0.0
+Suggests:	notification-daemon
 Suggests:	python-Crypto
 Suggests:	python-avahi
 Suggests:	python-dbus >= 0.82.1
 Suggests:	python-gnome-desktop-keyring
 Suggests:	python-gnome-gconf
+Suggests:	python-gnome-ui
 Suggests:	python-pyOpenSSL
+Suggests:	python-sexy
 Suggests:	python-sqlite
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
