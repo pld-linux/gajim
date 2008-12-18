@@ -1,13 +1,17 @@
+%define		snap	20081201
+%define		_state	beta1
+%define		snap_date	2008-12-01
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.11.4
-Release:	1
+Version:	0.12
+Release:	0.%{_state}.1201
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://www.gajim.org/downloads/%{name}-%{version}.tar.bz2
-# Source0-md5:	53eb80b280674678f6615eae4a552374
+Source0:	http://www.gajim.org/downloads/snap/%{name}-%{snap_date}.tar.gz
+# Source0-md5:	4295b34403474b85a1e7011729f4a822
+#Source0:	http://gajim.org/downloads/%{name}-%{version}-%{_state}.tar.gz
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -16,21 +20,28 @@ BuildRequires:	gtkspell-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	python-pygtk-devel >= 2.8.0
-BuildRequires:	rpmbuild(macros) >= 1.177
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.177
+BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
-Suggests:	gpgme >= 1.0.0
-Requires:	python-docutils >= 0.4-2
 Requires:	python-dns
+Requires:	python-docutils >= 0.4-2
 Requires:	python-pygtk-glade >= 2.8.0
 Requires:	python-sqlite
+Suggests:	gnome-keyring
+Suggests:	gnupg2
+Suggests:	gpgme >= 1.0.0
+Suggests:	notification-daemon
+Suggests:	python-Crypto
 Suggests:	python-avahi
 Suggests:	python-dbus >= 0.82.1
 Suggests:	python-gnome-desktop-keyring
 Suggests:	python-gnome-gconf
+Suggests:	python-gnome-ui
 Suggests:	python-pyOpenSSL
+Suggests:	python-sexy
 Suggests:	python-sqlite
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -49,7 +60,7 @@ dla użytkowników GTK+. Gajim nie wymaga do działania GNOME, choć
 działa z nim ładnie.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}.0.1-svn
 
 %build
 %{__intltoolize}
@@ -59,6 +70,7 @@ działa z nim ładnie.
 %{__autoconf}
 %{__automake}
 %configure
+
 %{__make} \
 	CC="%{__cc}" \
 	PREFIX=%{_prefix} \
@@ -74,8 +86,11 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
+
 [ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
+       mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}
 
 %clean
