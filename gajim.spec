@@ -1,13 +1,17 @@
+#
+%define		snap		20090221
+%define		snap_date	2009-02-21
+
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.12
-Release:	1
+Version:	0.12.1.2
+Release:	0.%{snap}.1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://gajim.org/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	839554bee346f9ab8a48cb7e432763cd
+Source0:	http://www.gajim.org/downloads/snap/%{name}-%{snap_date}.tar.gz
+# Source0-md5:	0f9dd9a5750bb540705821410e6c5f98
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -56,7 +60,7 @@ dla użytkowników GTK+. Gajim nie wymaga do działania GNOME, choć
 działa z nim ładnie.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-svn
 
 %build
 %{__intltoolize}
@@ -94,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README THANKS
+%doc AUTHORS ChangeLog README THANKS THANKS.artists
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.so
