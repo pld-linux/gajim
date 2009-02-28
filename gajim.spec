@@ -1,3 +1,7 @@
+# TODO
+# - --disable-coca flag for configure seems to be broken, so
+#   I've added BC: gnustep-gui-devel. Of course better sollution
+#   is to fix configure.*
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
@@ -22,6 +26,7 @@ BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
+BuildConflicts:	gnustep-gui-devel
 Requires:	python-dns
 Requires:	python-docutils >= 0.4-2
 Requires:	python-pygtk-glade >= 2.8.0
