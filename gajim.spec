@@ -1,17 +1,17 @@
-# TODO
-# - --disable-coca flag for configure seems to be broken, so
-#   I've added BC: gnustep-gui-devel. Of course better sollution
-#   is to fix configure.*
+#
+%define		snap		20090607
+%define		snap_date	2009-06-07
+
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.12.1
-Release:	1
+Version:	0.12.1.5
+Release:	0.%{snap}.1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://gajim.org/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	195a7973d3fbfb538e2ee74156aa6e9e
+Source0:	http://www.gajim.org/downloads/snap/%{name}-%{snap_date}.tar.gz
+# Source0-md5:	9b61fa8d22b7c0ba7d9e40391d36500e
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,9 +26,9 @@ BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libXScrnSaver-devel
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
-BuildConflicts:	gnustep-gui-devel
 Requires:	python-dns
 Requires:	python-docutils >= 0.4-2
+Requires:	python-modules-sqlite
 Requires:	python-pygtk-glade >= 2.8.0
 Requires:	python-sqlite
 Suggests:	gnome-keyring
@@ -61,7 +61,7 @@ dla użytkowników GTK+. Gajim nie wymaga do działania GNOME, choć
 działa z nim ładnie.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-svn
 
 %build
 %{__intltoolize}
