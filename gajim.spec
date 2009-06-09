@@ -1,6 +1,6 @@
 #
-%define		snap		20090511
-%define		snap_date	2009-05-11
+%define		snap		20090607
+%define		snap_date	2009-06-07
 
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
@@ -11,7 +11,7 @@ Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://www.gajim.org/downloads/snap/%{name}-%{snap_date}.tar.gz
-# Source0-md5:	dc5f12a9d5baa396f7e1926e70c420ff
+# Source0-md5:	9b61fa8d22b7c0ba7d9e40391d36500e
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
