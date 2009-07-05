@@ -6,7 +6,7 @@ Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.12.3
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
@@ -32,10 +32,10 @@ Requires:	python-dns
 Requires:	python-docutils >= 0.4-2
 Requires:	python-pygtk-glade >= 2.8.0
 Requires:	python-sqlite
+Suggests:	dbus(org.freedesktop.Notifications)
 Suggests:	gnome-keyring
 Suggests:	gnupg2
 Suggests:	gpgme >= 1.0.0
-Suggests:	notification-daemon
 Suggests:	python-Crypto
 Suggests:	python-avahi
 Suggests:	python-dbus >= 0.82.1
