@@ -38,9 +38,11 @@ Suggests:	notification-daemon
 Suggests:	python-Crypto
 Suggests:	python-avahi
 Suggests:	python-dbus >= 0.82.1
+Suggests:	python-farsight2
 Suggests:	python-gnome-desktop-keyring
 Suggests:	python-gnome-gconf
 Suggests:	python-gnome-ui
+Suggests:	python-gstreamer
 Suggests:	python-pyOpenSSL
 Suggests:	python-sexy
 Suggests:	python-sqlite
