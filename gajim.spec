@@ -19,6 +19,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtkspell-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	python-pygtk-devel >= 2.8.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.177
