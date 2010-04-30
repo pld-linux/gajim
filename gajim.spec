@@ -1,17 +1,17 @@
 # TODO
 # - --disable-coca flag for configure seems to be broken, so
-#   I've added BC: gnustep-gui-devel. Of course better sollution
+#   I've added BC: gnustep-gui-devel. Of course better solution
 #   is to fix configure.*
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.13.2
+Version:	0.13.4
 Release:	1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/0.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	91606788f4d846b2d9c48abf8ec0781c
+# Source0-md5:	097e96c2f73a13be4edadea11b495ce6
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
