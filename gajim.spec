@@ -45,7 +45,7 @@ Suggests:	python-gnome-desktop-keyring
 Suggests:	python-gnome-gconf
 Suggests:	python-gnome-ui
 Suggests:	python-gstreamer
-Suggests:	python-pyOpenSSL
+Suggests:	python-pyOpenSSL >= 0.9
 Suggests:	python-sexy
 Suggests:	python-sqlite
 # sr@Latn vs. sr@latin
