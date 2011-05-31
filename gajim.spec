@@ -1,25 +1,19 @@
-# TODO
-# - --disable-coca flag for configure seems to be broken, so
-#   I've added BC: gnustep-gui-devel. Of course better solution
-#   is to fix configure.*
+
+%define	snap		20110531
+%define	snap_date	2011-05-31
+
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.14.1
-Release:	0.2
+Version:	0.15.0
+Release:	0.%{snap}.1
 Epoch:		1
 License:	GPL v2
 Group:		Applications/Communications
-Source0:	http://gajim.org/downloads/0.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	d5e421da6eef7bb5e802231d93cb090f
-#Patch0: %{name}-keyring-bug.patch
+Source0:	http://www.gajim.org/downloads/snap/%{name}-%{snap_date}.tar.gz
+# Source0-md5:	fbec05d05eb557de97e03c3421a42012
 URL:		http://www.gajim.org/
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	gettext-devel
 BuildRequires:	gtkspell-devel
-BuildRequires:	intltool
-BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-pygtk-devel >= 2.8.0
 BuildRequires:	rpm-pythonprov
@@ -65,16 +59,9 @@ dla użytkowników GTK+. Gajim nie wymaga do działania GNOME, choć
 działa z nim ładnie.
 
 %prep
-%setup -q
-#%patch0 -p1
+%setup -q -n %{name}-0.14.0.1-76858b8db934
 
 %build
-%{__intltoolize}
-%{__aclocal} -I m4
-%{__libtoolize}
-%{__autoheader}
-%{__autoconf}
-%{__automake}
 %configure
 
 %{__make} \
