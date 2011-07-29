@@ -5,14 +5,14 @@
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.14.2
+Version:	0.14.4
 Release:	0.1
 Epoch:		1
-License:	GPL v2
+License:	GPL v3+
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/0.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	03c34227174dc0db021b82cd58fb95a8
-#Patch0: %{name}-keyring-bug.patch
+# Source0-md5:	b6b88b084de38d9fb34d39c37d4f185b
+Patch0:		%{name}-keyring-bug.patch
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -66,7 +66,7 @@ działa z nim ładnie.
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -90,10 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 	LIBDIR=/%{_lib} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
 
 [ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
        mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
@@ -105,10 +103,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README THANKS THANKS.artists
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/gajim*
 %{_datadir}/%{name}
-%{_desktopdir}/*.desktop
-%{_mandir}/man1/*
+%{_desktopdir}/gajim.desktop
+%{_mandir}/man1/*.1*
 %{_iconsdir}/hicolor/64x64/apps/gajim.png
 %{_iconsdir}/hicolor/scalable/apps/gajim.svg
 %{_docdir}/gajim
