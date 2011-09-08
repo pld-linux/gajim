@@ -1,19 +1,23 @@
 
-%define	snap		20110531
-%define	snap_date	2011-05-31
+%define		pre	alpha1
 
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.15.0
-Release:	0.%{snap}.1
+Version:	0.15
+Release:	0.%{pre}.1
 Epoch:		1
-License:	GPL v2
+License:	GPL v3+
 Group:		Applications/Communications
-Source0:	http://www.gajim.org/downloads/snap/%{name}-%{snap_date}.tar.gz
-# Source0-md5:	fbec05d05eb557de97e03c3421a42012
+Source0:	http://gajim.org/downloads/0.15/%{name}-%{version}-%{pre}.tar.gz
+# Source0-md5:	c0e4ac7703c7932ae8b47a99de58163b
 URL:		http://www.gajim.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	gtkspell-devel
+BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-pygtk-devel >= 2.8.0
 BuildRequires:	rpm-pythonprov
@@ -59,9 +63,15 @@ dla użytkowników GTK+. Gajim nie wymaga do działania GNOME, choć
 działa z nim ładnie.
 
 %prep
-%setup -q -n %{name}-0.14.0.1-76858b8db934
+%setup -q -n %{name}-%{version}-%{pre}
 
 %build
+%{__intltoolize}
+%{__aclocal} -I m4
+%{__libtoolize}
+%{__autoheader}
+%{__autoconf}
+%{__automake}
 %configure
 
 %{__make} \
@@ -77,10 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 	LIBDIR=/%{_lib} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/{setup_win32.pyo}
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
-
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 [ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
        mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
@@ -92,10 +99,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README THANKS THANKS.artists
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/gajim*
 %{_datadir}/%{name}
-%{_desktopdir}/*.desktop
-%{_mandir}/man1/*
+%{_desktopdir}/gajim.desktop
+%{_mandir}/man1/*.1*
 %{_iconsdir}/hicolor/64x64/apps/gajim.png
 %{_iconsdir}/hicolor/scalable/apps/gajim.svg
 %{_docdir}/gajim
