@@ -105,4 +105,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*.1*
 %{_iconsdir}/hicolor/64x64/apps/gajim.png
 %{_iconsdir}/hicolor/scalable/apps/gajim.svg
-%{_docdir}/gajim
