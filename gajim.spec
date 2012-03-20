@@ -1,18 +1,13 @@
-# TODO
-# - --disable-coca flag for configure seems to be broken, so
-#   I've added BC: gnustep-gui-devel. Of course better solution
-#   is to fix configure.*
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.14.4
+Version:	0.15
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Communications
-Source0:	http://gajim.org/downloads/0.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	b6b88b084de38d9fb34d39c37d4f185b
-Patch0:		%{name}-keyring-bug.patch
+Source0:	http://gajim.org/downloads/0.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	22bc064cb35c36b4b65c40cd9b2338eb
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,6 +21,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.177
 BuildRequires:	xorg-lib-libSM-devel
 BuildRequires:	xorg-lib-libXScrnSaver-devel
+Requires:	hicolor-icon-theme
 Requires:	python-modules-sqlite
 %pyrequires_eq	python-modules
 %pyrequires_eq	python
@@ -46,6 +42,7 @@ Suggests:	python-gnome-gconf
 Suggests:	python-gnome-ui
 Suggests:	python-gstreamer
 Suggests:	python-pyOpenSSL >= 0.9
+Suggests:	python-pyasn1
 Suggests:	python-sexy
 Suggests:	python-sqlite
 # sr@Latn vs. sr@latin
@@ -66,7 +63,6 @@ działa z nim ładnie.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__intltoolize}
@@ -92,13 +88,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
-
 [ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
        mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_icon_cache hicolor
+
+%postun
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -109,4 +110,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*.1*
 %{_iconsdir}/hicolor/64x64/apps/gajim.png
 %{_iconsdir}/hicolor/scalable/apps/gajim.svg
-%{_docdir}/gajim
