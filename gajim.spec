@@ -11,7 +11,7 @@ Source0:	http://gajim.org/downloads/0.15/%{name}-%{version}.tar.bz2
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtkspell-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
