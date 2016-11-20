@@ -1,13 +1,13 @@
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.15.4
+Version:	0.16.6
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Communications
-Source0:	http://gajim.org/downloads/0.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	25052ec18d9d1c4d2da7be55093c823d
+Source0:	http://gajim.org/downloads/0.16/%{name}-%{version}.tar.bz2
+# Source0-md5:	88ca7a0d0b7deb86a55fe7ba5156f27f
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -109,4 +109,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/gajim.desktop
 %{_mandir}/man1/*.1*
 %{_iconsdir}/hicolor/64x64/apps/gajim.png
+%{_iconsdir}/hicolor/128x128/apps/gajim.png
 %{_iconsdir}/hicolor/scalable/apps/gajim.svg
