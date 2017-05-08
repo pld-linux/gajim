@@ -1,13 +1,13 @@
 Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
-Version:	0.16.6
+Version:	0.16.7
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/0.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	88ca7a0d0b7deb86a55fe7ba5156f27f
+# Source0-md5:	08d6fc3025977700e5bafde12cda36f4
 URL:		http://www.gajim.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -28,6 +28,7 @@ Requires:	python-modules-sqlite
 BuildConflicts:	gnustep-gui-devel
 Requires:	python-dns
 Requires:	python-docutils >= 0.4-2
+Requires:	python-nbxmpp
 Requires:	python-pygtk-glade >= 2.8.0
 Suggests:	dbus(org.freedesktop.Notifications)
 Suggests:	gnome-keyring
@@ -36,15 +37,12 @@ Suggests:	gpgme >= 1.0.0
 Suggests:	python-Crypto
 Suggests:	python-avahi
 Suggests:	python-dbus >= 0.82.1
-Suggests:	python-farsight2
 Suggests:	python-gnome-desktop-keyring
 Suggests:	python-gnome-gconf
 Suggests:	python-gnome-ui
-Suggests:	python-gstreamer
 Suggests:	python-pyOpenSSL >= 0.9
 Suggests:	python-pyasn1
-Suggests:	python-sexy
-Suggests:	python-sqlite
+Suggests:	python-modules-sqlite
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -86,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 	LIBDIR=/%{_lib} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/nb_NO
 
 [ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
        mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
@@ -107,6 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gajim*
 %{_datadir}/%{name}
 %{_desktopdir}/gajim.desktop
+%{_desktopdir}/gajim-remote.desktop
 %{_mandir}/man1/*.1*
 %{_iconsdir}/hicolor/64x64/apps/gajim.png
 %{_iconsdir}/hicolor/128x128/apps/gajim.png
