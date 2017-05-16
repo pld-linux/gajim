@@ -2,7 +2,7 @@ Summary:	A Jabber client written in PyGTK
 Summary(pl.UTF-8):	Klient Jabbera napisany w PyGTK
 Name:		gajim
 Version:	0.16.7
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v3+
 Group:		Applications/Communications
@@ -83,6 +83,8 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=%{_prefix} \
 	LIBDIR=/%{_lib} \
 	DESTDIR=$RPM_BUILD_ROOT
+
+cp -a plugins/plugin_installer/*.pem $RPM_BUILD_ROOT%{_datadir}/%{name}/plugins/plugin_installer/
 
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/nb_NO
 
