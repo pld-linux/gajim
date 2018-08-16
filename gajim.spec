@@ -8,10 +8,12 @@ License:	GPL v3+
 Group:		Applications/Communications
 Source0:	http://gajim.org/downloads/1.0/%{name}-%{version}.tar.bz2
 # Source0-md5:	08091dafd70c092711dca73991e8aee4
+Patch0:		ca-certificates.patch
 URL:		http://www.gajim.org/
 BuildRequires:	gettext-tools
 BuildRequires:	python3 >= 3.5
 BuildRequires:	python3-setuptools >= 3.5
+Requires:	ca-certificates
 Requires:	hicolor-icon-theme
 Requires:	python3-nbxmpp
 Requires:	python3-pygobject3
@@ -42,6 +44,7 @@ działa z nim ładnie.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %py3_build %{?with_tests:test}

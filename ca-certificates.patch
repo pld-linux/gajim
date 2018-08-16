@@ -1,0 +1,12 @@
+diff -dur gajim-1.0.3.orig/gajim/common/connection.py gajim-1.0.3/gajim/common/connection.py
+--- gajim-1.0.3.orig/gajim/common/connection.py	2018-05-19 11:02:48.000000000 +0200
++++ gajim-1.0.3/gajim/common/connection.py	2018-08-16 17:13:33.261177953 +0200
+@@ -1221,7 +1221,7 @@
+ 
+         port = self._current_host['port']
+ 
+-        cacerts = ''
++        cacerts = '/etc/certs/ca-certificates.crt'
+         if os.name == 'nt':
+             cacerts = certifi.where()
+         mycerts = common.app.MY_CACERTS
