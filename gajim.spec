@@ -16,6 +16,7 @@ BuildRequires:	python3-setuptools >= 3.5
 Requires:	ca-certificates
 Requires:	hicolor-icon-theme
 Requires:	python3-nbxmpp
+Requires:	python3-pyOpenSSL >= 0.12
 Requires:	python3-pygobject3
 Suggests:	dbus(org.freedesktop.Notifications)
 Suggests:	gnome-keyring
@@ -23,7 +24,6 @@ Suggests:	gnupg2
 Suggests:	python3-Crypto
 Suggests:	python3-avahi
 Suggests:	python3-dbus >= 0.82.1
-Suggests:	python3-pyOpenSSL >= 0.9
 Suggests:	python3-pyasn1
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
