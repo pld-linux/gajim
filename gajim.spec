@@ -12,7 +12,9 @@ Patch0:		ca-certificates.patch
 URL:		http://www.gajim.org/
 BuildRequires:	gettext-tools
 BuildRequires:	python3 >= 3.5
-BuildRequires:	python3-setuptools >= 3.5
+BuildRequires:	python3-setuptools >= 1:3.5
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	ca-certificates
 Requires:	hicolor-icon-theme
 Requires:	python3-nbxmpp
