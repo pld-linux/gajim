@@ -27,8 +27,6 @@ Suggests:	python3-Crypto
 Suggests:	python3-avahi
 Suggests:	python3-dbus >= 0.82.1
 Suggests:	python3-pyasn1
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -56,10 +54,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %py3_install
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/nb_NO
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{nb_NO,nb}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/sr@{Latn,latin}
 
-[ -d $RPM_BUILD_ROOT%{_localedir}/sr@latin ] || \
-       mv -f $RPM_BUILD_ROOT%{_localedir}/sr@{Latn,latin}
 %find_lang %{name}
 
 %clean
@@ -75,7 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gajim*
 %{_desktopdir}/org.gajim.Gajim.desktop
-%{_mandir}/man1/*.1*
+%{_mandir}/man1/gajim*.1*
 %{_iconsdir}/hicolor/*/apps/org.gajim.Gajim.png
 %{_iconsdir}/hicolor/scalable/apps/org.gajim.Gajim.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gajim.Gajim-symbolic.svg
